@@ -40,6 +40,7 @@ If you have just the black buzzer part, connect the wire from the digital I/O pi
 Open the Arduino IDE. There will be two functions defined: `setup()` and `loop()`. 
 <br>
 The setup() function runs once when the arduino is turned on and the loop function restarts everytime it finishes.
+<br>
 ```
 void setup() {
     // put your setup code here, to run once:
@@ -51,15 +52,13 @@ void loop() {
 
 }
 ```
-<br>
-First, we will make the digital I/O pin that we have connected a wire to act as an output:
+First, we will make the digital I/O pin that we have connected a wire to, act as an output:
 <br>
 ```
 void setup() {
     pinMode(5, OUTPUT);
 }
 ```
-<br>
 Then we'll make the LED/buzzer turn on in the `loop()` function:
 <br>
 ```
@@ -70,7 +69,7 @@ void loop(){
 This makes pin 5 produce a voltage which may be different depending on the Arduino board that you have. 
 <br><br>
 
-To turn off the LED/buzzer after 1 second we can do this:
+To turn off the LED/buzzer after 1 second, we can do this:
 <br>
 ```
 void loop(){
@@ -83,7 +82,7 @@ Here the `delay()` function makes the program stop for 1000 milliseconds (which 
 <br>
 `digitalWrite(5, LOW);` makes pin 5 stop producing a voltage.
 <br><br>
-There is a problem however, the LED/buzzer doesn't turn off! This is because just after the last line of the `loop()` function executes, which turns off the LED/buzzer, the first line of the function executes because it loops back to the beginning.
+There is a problem however, the LED/buzzer doesn't turn off! This is because just after the last line of the `loop()` function executes and turns off the LED/buzzer, the first line of the function executes, turning the LED/buzzer back on because the `loop()` function loops back to the beginning.
 To fix this, we can wait another second after we turn the LED/buzzer off and before we turn it back on.
 <br>
 ```
@@ -117,7 +116,7 @@ void loop() {
 ```
 Before we enter the loop we create a variable, x, which will store a float (which is a number like 3.5).
 <br>
-Then at the beginning of the loop we check if there is any input with `Serial.available()` and if there is any we get it with `Serial.readString()`, then convert it to a float and store it in x.
+Then at the beginning of the loop we check if there is any input with `Serial.available()`, and if there is any we get it with `Serial.readString()`, then we convert it to a float and store it in x.
 <br>
 We have to convert the input to a float because otherwise it will be a string (just text) and x can only store floats.
 <br>
@@ -151,7 +150,7 @@ void loop() {
 * Let's also say that one cycle means that we have to turn the LED/buzzer on once and turn it off once.
 * So how much time would we need to spend doing x cycles if we have only 1000 milliseconds?
 * We would need to spend 1000/x milliseconds for every cycle.
-* But how much of the time should the LED/buzzer be on and how much time off? Let's say that half of a cycle should be spent on and the other half should be spent off.
+* But how much of the time should the LED/buzzer be on and how much time off every cycle? Let's say that half of a cycle should be spent on and the other half should be spent off.
 * This means that if we spend 1000/x milliseconds per cycle, then we need to spend half of 1000/x milliseconds on which is (1000/x)/2 milliseconds and the same amount of time off. So we put those values into the delay function and we are done!
 
 <br>
