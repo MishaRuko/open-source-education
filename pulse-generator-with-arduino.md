@@ -3,7 +3,7 @@
 ### What's needed:
 * 1 arduino board
 * A buzzer or an LED
-* Two wires
+* Two or three wires
 
 ## The wiring
 The first step will be to wire up the arduino to the buzzer/LED.
@@ -18,9 +18,7 @@ This tutorial assumes that you have connected a wire to digital I/O pin 5.
 <br><br>
 
 If you have an LED, then connect the wire from the digital I/O pin to the longer terminal of the LED (this is the anode which is positive), and the ground wire to the shorter terminal (which is the cathode and is negative). 
-
 <br><br>
-
 If you have a buzzer module like this: 
 <br>
 <p align="center">
@@ -55,6 +53,7 @@ void loop() {
 ```
 <br>
 First, we will make the digital I/O pin that we have connected a wire to act as an output:
+<br>
 ```
 void setup() {
     pinMode(5, OUTPUT);
@@ -62,6 +61,7 @@ void setup() {
 ```
 <br>
 Then we'll make the LED/buzzer turn on in the `loop()` function:
+<br>
 ```
 void loop(){
     digitalWrite(5, HIGH);
@@ -71,6 +71,7 @@ This makes pin 5 produce a voltage which may be different depending on the Ardui
 <br><br>
 
 To turn off the LED/buzzer after 1 second we can do this:
+<br>
 ```
 void loop(){
     digitalWrite(5, HIGH);
@@ -84,6 +85,7 @@ Here the `delay()` function makes the program stop for 1000 milliseconds (which 
 <br><br>
 There is a problem however, the LED/buzzer doesn't turn off! This is because just after the last line of the `loop()` function executes, which turns off the LED/buzzer, the first line of the function executes because it loops back to the beginning.
 To fix this, we can wait another second after we turn the LED/buzzer off and before we turn it back on.
+<br>
 ```
 void loop(){
     digitalWrite(5, HIGH);
@@ -99,6 +101,7 @@ Now let's make it so that we can type in how many times per second we want the L
 We'll start by adding `Serial.begin(9600)` to the beginning of the `setup()` function. This will allow us to send data to the Arduino from our computer.
 <br>
 Then we will ask the user for an input like this and then print it out:
+<br>
 ```
 float x = 1;
 void loop() {
@@ -128,6 +131,7 @@ To access the serial monitor click this button:
 <br><br>
 
 Now x should be the number of times that we should turn the LED/buzzer on and off every second (or the number of on/off cycles that happen every second). To make the program actually do that we need to change the `loop()` function to:
+<br>
 ```
 float x = 1;
 void loop() {
