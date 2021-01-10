@@ -15,17 +15,17 @@ This tutorial assumes that you have connected a wire to digital I/O pin 5.
 # ADD AN IMAGE
 
 If you have an LED, then connect the wire from the digital I/O pin to the longer terminal of the LED (this is the anode which is positive), and the ground wire to the shorter terminal (which is the cathode and is negative). <br>
-<img src="images/pulse-generator-with-arduino/image1.JPG", height=300>
+<img src="/images/pulse-generator-with-arduino/image1.JPG", height=300>
 <br><br>
 If you have a buzzer module like this: <br>
 <img src="https://img.dxcdn.com/productimages/sku_151561_1.jpg" height=300>
 
 Then connect the pin labelled "vcc" to a 5V output pin on the arduino and connect wire from the digital I/O pin to the "I/O" pin on the module.
-<img src="images/pulse-generator-with-arduino/image2.JPG", height=300>
+<img src="/images/pulse-generator-with-arduino/image2.JPG", height=300>
 <br>
 
 If you have just the black buzzer part, connect the wire from the digital I/O pin to the pin which has a "+" in a circle on the top of the buzzer.
-<img src="images/pulse-generator-with-arduino/image3.JPG", height=300>
+<img src="/images/pulse-generator-with-arduino/image3.JPG", height=300>
 <br>
 ## The programming
 Open the Arduino IDE. There will be two functions defined: `setup()` and `loop()`. 
