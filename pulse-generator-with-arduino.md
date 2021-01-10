@@ -11,20 +11,24 @@ The first step will be to wire up the arduino to the buzzer/LED.
 2. Connect a wire to a ground pin on the arduino (It should be labelled "gnd")
 
 This tutorial assumes that you have connected a wire to digital I/O pin 5.
+<br><br>
 
-# ADD AN IMAGE
-
-If you have an LED, then connect the wire from the digital I/O pin to the longer terminal of the LED (this is the anode which is positive), and the ground wire to the shorter terminal (which is the cathode and is negative). <br>
+If you have an LED, then connect the wire from the digital I/O pin to the longer terminal of the LED (this is the anode which is positive), and the ground wire to the shorter terminal (which is the cathode and is negative). 
+<br>
 <img src="https://github.com/MishaRuko/open-source-education/blob/main/images/pulse-generator-with-arduino/image1.JPG" height=250>
 <br><br>
-If you have a buzzer module like this: <br>
-<img src="https://img.dxcdn.com/productimages/sku_151561_1.jpg" height=250>
 
-Then connect the pin labelled "vcc" to a 5V output pin on the arduino and connect wire from the digital I/O pin to the "I/O" pin on the module.
-<img src="https://github.com/MishaRuko/open-source-education/blob/main/images/pulse-generator-with-arduino/image2.JPG" height=250>
+If you have a buzzer module like this: 
 <br>
+<img src="https://img.dxcdn.com/productimages/sku_151561_1.jpg" height=250>
+<br>
+Then connect the pin labelled "vcc" to a 5V output pin on the arduino and connect wire from the digital I/O pin to the "I/O" pin on the module.
+<br>
+<img src="https://github.com/MishaRuko/open-source-education/blob/main/images/pulse-generator-with-arduino/image2.JPG" height=250>
+<br><br>
 
 If you have just the black buzzer part, connect the wire from the digital I/O pin to the pin which has a "+" in a circle on the top of the buzzer.
+<br>
 <img src="https://github.com/MishaRuko/open-source-education/blob/main/images/pulse-generator-with-arduino/image3.jpg" height=250>
 <br>
 ## The programming
@@ -42,13 +46,15 @@ void loop() {
 
 }
 ```
-<br>First, we will make the digital I/O pin that we have connected a wire to act as an output:
+<br>
+First, we will make the digital I/O pin that we have connected a wire to act as an output:
 ```
 void setup() {
     pinMode(5, OUTPUT);
 }
 ```
-<br>Then we'll make the LED/buzzer turn on in the `loop()` function:
+<br>
+Then we'll make the LED/buzzer turn on in the `loop()` function:
 ```
 void loop(){
     digitalWrite(5, HIGH);
@@ -56,6 +62,7 @@ void loop(){
 ```
 This makes pin 5 produce a voltage which may be different depending on the Arduino board that you have. 
 <br><br>
+
 To turn off the LED/buzzer after 1 second we can do this:
 ```
 void loop(){
@@ -126,16 +133,12 @@ void loop() {
 ```
 ### How does this work?
 * Let's say that we need the LED/buzzer to do x cycles every 1000 milliseconds (or every second). 
-<br>
 * Let's also say that one cycle means that we have to turn the LED/buzzer on once and turn it off once.
-<br>
 * So how much time would we need to spend doing x cycles if we have only 1000 milliseconds?
-<br>
 * We would need to spend 1000/x milliseconds for every cycle.
-<br>
 * But how much of the time should the LED/buzzer be on and how much time off? Let's say that half of a cycle should be spent on and the other half should be spent off.
-<br>
 * This means that if we spend 1000/x milliseconds per cycle, then we need to spend half of 1000/x milliseconds on which is (1000/x)/2 milliseconds and the same amount of time off. So we put those values into the delay function and we are done!
+
 <br>
-* Now as the program is running, you can open the serial monitor and type in the number of times that you want the LED to blink or the buzzer to beep every second.
+Now as the program is running, you can open the serial monitor and type in the number of times that you want the LED to blink or the buzzer to beep every second.
 
