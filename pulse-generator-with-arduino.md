@@ -129,7 +129,7 @@ To access the serial monitor click this button:
 </p>
 <br><br>
 
-Now x should be the number of times that we should turn the LED/buzzer on and off every second (or the number of on/off cycles that happen every second). To make the program actually do that we need to change the `loop()` function to:
+Now x should be the number of times that we should turn the LED/buzzer on and off every second (or the number of on/off cycles that happen every second. One cycle per second is also called one Hertz). To make the program actually do that we need to change the `loop()` function to:
 <br>
 ```
 float x = 1;
